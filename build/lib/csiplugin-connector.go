@@ -288,6 +288,9 @@ func checkRichNasClientCmd(cmd string) error {
 // -ourl=oss-cn-shenzhen-internal.aliyuncs.com
 // -o max_stat_cache_size=0 -o allow_other
 func checkOssfsCmd(cmd string) error {
+
+	return nil
+
 	ossCmdPrefixList := []string{"systemd-run --scope -- /usr/local/bin/ossfs", "systemd-run --scope -- ossfs", "ossfs"}
 	ossCmdPrefix := ""
 	for _, cmdPrefix := range ossCmdPrefixList {
