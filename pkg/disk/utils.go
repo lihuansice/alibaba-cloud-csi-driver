@@ -1199,8 +1199,9 @@ func UpdateNode(nodeID string, c *ecs.Client) {
 		zoneID = nodeInfo.Labels[sigmaLabelZoneId]
 	}
 	request := ecs.CreateDescribeAvailableResourceRequest()
-	request.InstanceType = instanceType
+	request.ResourceType = "disk"
 	request.DestinationResource = describeResourceType
+	request.SystemDiskCategory = "cloud_sperf"
 	request.ZoneId = zoneID
 	var response *ecs.DescribeAvailableResourceResponse
 	waitErr := wait.PollImmediate(updatePollInterval, 30*time.Second, func() (bool, error) {
